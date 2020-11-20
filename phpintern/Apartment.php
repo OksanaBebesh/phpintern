@@ -15,13 +15,21 @@ class Apartment {
 
     public function addRoom($roomDescription){
         $this->countRooms ++;
-        $this->roomDescription = '';
+        $this->roomDescription [] = $roomDescription;
     }
 
     public function remooveRoom(){
-        ($this->countRooms) ? $this->countRooms-- : $this->countRooms;
+        ($this->countRooms !==0 ) ? $this->countRooms-- : $this->countRooms;
     }
 
+    public function getInfo(){
+        return [
+            'owner' => $this->owner,
+            'countRooms' => $this->countRooms,
+            'address' => $this->address,
+            'roomsDescriptions' => $this->roomDescription
+        ];
+    }
 
 
 
